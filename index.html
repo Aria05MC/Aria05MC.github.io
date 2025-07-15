@@ -22,7 +22,7 @@
             
             <div class="info-card">
               <div class="info-item">
-                <h3>Age:</h3>
+                <h3>Age (Live):</h3>
                 <p id="age"></p>
               </div>
 
@@ -61,6 +61,11 @@
               <div class="extras">
                 <h3>Extras:</h3>
                 <p>IM BOREED =m=</p>
+              </div>
+
+              <div class="owner">
+                <h3>Owner:</h3>
+                <p>Shoes</p>
               </div>
             </div>
           </div>
@@ -106,19 +111,20 @@
     </div>
     <script>
   const birthday = new Date('2005-08-05');
+
   const today = new Date();
   let age = today.getFullYear() - birthday.getFullYear();
   const m = today.getMonth() - birthday.getMonth();
   if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
     age--;
   }
+
   const birthdayFormatted = birthday.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   });
 
-  // ⛓️ Masukin ke HTML
   document.getElementById('age').innerText = age;
   document.getElementById('birthday').innerText = birthdayFormatted;
 </script>
