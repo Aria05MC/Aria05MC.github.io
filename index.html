@@ -68,7 +68,14 @@
                 <p>Shoes</p>
               </div>
             </div>
-          </div>
+
+            <div class="minecraft-skin-section">
+              <h2>My Live Minecraft Skin:</h2>
+              <div class="minecraft-skin-container">
+                <img src="https://crafatar.com/renders/body/00951275-aee9-466a-8903-d2088413d958?overlay" alt="Aria05 Minecraft Skin" class="minecraft-skin">
+              </div>
+            </div>
+            </div>
         </section>
         
         <section class="middle-section">
@@ -77,7 +84,8 @@
               <img src="./profile.png" alt="Aria05" class="profile-picture">
             </div>
             <h1 class="profile-name">Aria05</h1>
-          </div>
+            
+            </div>
         </section>
         
         <section class="right-section">
@@ -110,24 +118,23 @@
       </div>
     </div>
     <script>
-  const birthday = new Date('2005-08-05');
+      const birthday = new Date('2005-08-05');
 
-  const today = new Date();
-  let age = today.getFullYear() - birthday.getFullYear();
-  const m = today.getMonth() - birthday.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
-    age--;
-  }
+      const today = new Date();
+      let age = today.getFullYear() - birthday.getFullYear();
+      const m = today.getMonth() - birthday.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
+        age--;
+      }
 
-  const birthdayFormatted = birthday.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
+      const birthdayFormatted = birthday.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
 
-  document.getElementById('age').innerText = age;
-  document.getElementById('birthday').innerText = birthdayFormatted;
-</script>
-
+      document.getElementById('age').innerText = age;
+      document.getElementById('birthday').innerText = birthdayFormatted;
+    </script>
   </body>
 </html>
