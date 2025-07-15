@@ -353,3 +353,54 @@ p {
     font-size: 1.8rem;
   }
 }
+
+/* Minecraft Skin Section - Updated styles for left column */
+.minecraft-skin-section {
+  margin-top: var(--space-xl); /* Jarak dari konten di atasnya */
+  padding-top: var(--space-md);
+  border-top: 1px dashed var(--primary-light); /* Garis putus-putus sebagai pemisah */
+  text-align: center; /* Rata tengah isi section */
+}
+
+.minecraft-skin-section h2 {
+    font-size: 1.6rem; /* Ukuran judul skin */
+    margin-bottom: var(--space-md);
+    color: var(--primary-dark); /* Warna judul */
+}
+
+.minecraft-skin-section h2::after {
+    /* Hapus atau sesuaikan underline untuk judul skin jika tidak diinginkan */
+    content: none; /* Menghilangkan underline bawaan h2 */
+}
+
+
+.minecraft-skin-container {
+  /* Margin-top bisa disesuaikan lagi jika perlu, atau dihapus jika section-nya sudah punya padding-top */
+  margin-top: var(--space-sm); 
+  display: flex;
+  justify-content: center; /* Tetap rata tengah agar skin di tengah */
+  width: 100%;
+}
+
+.minecraft-skin {
+  width: 180px; /* Ukuran skin mungkin bisa sedikit lebih besar di kolom kiri */
+  height: auto;
+  border-radius: 15px; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); 
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.5); 
+  padding: 10px; 
+  border: 2px solid var(--secondary); 
+}
+
+.minecraft-skin:hover {
+  transform: translateY(-5px) rotate(-3deg) scale(1.05); 
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6); 
+}
+
+/* Media query untuk ukuran yang lebih kecil agar skin tidak terlalu besar */
+@media (max-width: 767px) {
+  .minecraft-skin {
+    width: 120px; /* Ukuran mobile */
+  }
+}
