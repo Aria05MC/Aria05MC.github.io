@@ -105,18 +105,13 @@
       </div>
     </div>
     <script>
-  // 🎂 Tanggal Lahir Aria
   const birthday = new Date('2005-08-05');
-
-  // 🧠 Hitung Umur
   const today = new Date();
   let age = today.getFullYear() - birthday.getFullYear();
   const m = today.getMonth() - birthday.getMonth();
   if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
-    age--; // Belum ulang tahun tahun ini
+    age--;
   }
-
-  // 📝 Format Tanggal ke String (optional aesthetic)
   const birthdayFormatted = birthday.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
