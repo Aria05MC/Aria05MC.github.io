@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Dosis:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Aria05</title>
     <link rel="stylesheet" href="style.css">
   </head>
@@ -108,17 +109,19 @@
                     Most of my repositories are personal learning spaces. Whether it’s web dev, data science, machine learning, or 
                     just testing some weird CSS, I keep building things that interest me. I’ve worked on projects using Python, HTML, 
                     Jupyter Notebook, and even TensorFlow and PyTorch when I feel like messing with AI. I don’t follow trends—I just 
-                    code what I like and share it :D
+                    code what I like and share it.
                 </p>
             </div>
 
             <div class="skill-card">
                 <h3>I know your location</h3>
                 <p id="ip"></p>
+                <p class="hidden" id="hostname"></p>
                 <p id="city"></p>
                 <p id="region"></p>
                 <p id="country"></p>
                 <p id="loc"></p>
+                <p class="hidden" id="org"></p>
                 <p id="timezone"></p>
               </div>
             </div>
