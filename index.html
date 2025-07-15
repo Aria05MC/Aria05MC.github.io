@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./profile.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Dosis:wght@600;700&display=swap" rel="stylesheet">
+    <title>Aria05</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <section class="left-section">
+          <div class="about-me">
+            <h2>About Me</h2>
+            <p>
+              Yoo! Im Aria. a nerd girl who love to code &gt;:D
+            </p>
+            
+            <div class="info-card">
+              <div class="info-item">
+                <h3>Age:</h3>
+                <p id="age"></p>
+              </div>
+
+              <div class="info-item">
+                <h3>Birthday:</h3>
+                <p id="birthday"></p>
+              </div>
+              
+              <div class="info-item">
+                <h3>Pronouns:</h3>
+                <p>She/Her</p>
+              </div>
+              
+              <div class="info-item">
+                <h3>Sexuality:</h3>
+                <p>Straight</p>
+              </div>
+            </div>
+            
+            <div class="preferences">
+              <div class="likes">
+                <h3>Likes:</h3>
+                <p>
+                  Do coding or animating.<br>
+                  I also like BDSM, my role is always be Submissive =w=
+                </p>
+              </div>
+              
+              <div class="dislikes">
+                <h3>Dislikes:</h3>
+                <p>
+                    Be alone xD
+                </p>
+              </div>
+              
+              <div class="extras">
+                <h3>Extras:</h3>
+                <p>IM BOREED =m=</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="middle-section">
+          <div class="profile">
+            <div class="profile-picture-container">
+              <img src="./profile.png" alt="Aria05" class="profile-picture">
+            </div>
+            <h1 class="profile-name">Aria05</h1>
+          </div>
+        </section>
+        
+        <section class="right-section">
+          <div class="what-i-do">
+            <h2>What I Do</h2>
+            
+            <div class="skill-card">
+                <h3>Item Developing</h3>
+                <p>
+                    I don’t really make items for prison RP or anything like that—what I do is more focused on trying random ideas 
+                    and just making things I personally enjoy. Sometimes I mess with UI elements, sometimes I generate things using 
+                    code just for fun. It started from random experiments and turned into something I actually enjoy. 
+                    I’m not focused on being the best at it—I just like learning and building stuff.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Programming Projects</h3>
+                <p>
+                    Most of my repositories are personal learning spaces. Whether it’s web dev, data science, machine learning, or 
+                    just testing some weird CSS, I keep building things that interest me. I’ve worked on projects using Python, HTML, 
+                    Jupyter Notebook, and even TensorFlow and PyTorch when I feel like messing with AI. I don’t follow trends—I just 
+                    code what I like and share it.
+                </p>
+            </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script>
+  // 🎂 Tanggal Lahir Aria
+  const birthday = new Date('2005-08-05');
+
+  // 🧠 Hitung Umur
+  const today = new Date();
+  let age = today.getFullYear() - birthday.getFullYear();
+  const m = today.getMonth() - birthday.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
+    age--; // Belum ulang tahun tahun ini
+  }
+
+  // 📝 Format Tanggal ke String (optional aesthetic)
+  const birthdayFormatted = birthday.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
+  // ⛓️ Masukin ke HTML
+  document.getElementById('age').innerText = age;
+  document.getElementById('birthday').innerText = birthdayFormatted;
+</script>
+
+  </body>
+</html>

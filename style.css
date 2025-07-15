@@ -1,0 +1,355 @@
+/* Base styles and reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Color system - Lebih Ceria dan Hangat */
+  --primary: #FFC0CB; /* Pink terang */
+  --primary-light: #FFDDE2; /* Pink sangat terang */
+  --primary-dark: #FF9AA7; /* Pink sedikit lebih gelap */
+  --secondary: #FFD700; /* Kuning cerah */
+  --secondary-light: #FFEC8B; /* Kuning sangat terang */
+  --secondary-dark: #FFA500; /* Oranye/kuning gelap */
+  --accent: #ADD8E6; /* Biru muda */
+  --background: #FFF9F9; /* Hampir putih, sedikit pink */
+  --text: #4B0082; /* Ungu tua yang lembut */
+  --text-light: #8A2BE2; /* Ungu yang lebih terang */
+  --card-bg: rgba(255, 240, 245, 0.7); /* Pink pucat transparan */
+  
+  /* Spacing system (8px) */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 1rem;     /* 16px */
+  --space-md: 1.5rem;   /* 24px */
+  --space-lg: 2rem;     /* 32px */
+  --space-xl: 3rem;     /* 48px */
+  
+  /* Other variables */
+  --border-radius: 20px; /* Lebih bulat */
+  --card-shadow: 0 8px 20px rgba(255, 192, 203, 0.4); /* Bayangan lebih lembut */
+  --transition-speed: 0.4s; /* Transisi lebih halus */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background: url('background.png') center center fixed; /* Ganti background imut */
+  background-size: cover;
+  color: var(--text);
+  min-height: 100vh;
+  padding: var(--space-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--primary-dark); /* Menggunakan primary-dark */
+  font-family: 'Dosis', sans-serif; /* Font lebih lucu */
+}
+
+h1 {
+  font-size: 3rem; /* Lebih besar */
+  margin-top: var(--space-md);
+  letter-spacing: 2px; /* Jarak antar huruf */
+}
+
+h2 {
+  font-size: 2rem; /* Lebih besar */
+  margin-bottom: var(--space-md);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px; /* Ruang untuk underline */
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px; /* Garis bawah lebih tebal */
+  background: linear-gradient(90deg, var(--primary), var(--secondary)); /* Gradasi warna cerah */
+  border-radius: 5px;
+}
+
+h3 {
+  font-size: 1.35rem; /* Sedikit lebih besar */
+  color: var(--secondary-dark); /* Menggunakan secondary-dark */
+  margin-bottom: var(--space-xs);
+}
+
+p {
+  margin-bottom: var(--space-md);
+  color: var(--text-light); /* Warna teks lebih lembut */
+}
+
+/* Layout styles */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--space-md);
+  background-color: rgba(255, 255, 255, 0.8); /* Background container transparan */
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); /* Bayangan keseluruhan */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  padding: var(--space-md);
+}
+
+/* Profile section */
+.middle-section {
+  order: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-lg) 0;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-picture-container {
+  width: 220px; /* Ukuran sedikit lebih besar */
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 7px solid var(--secondary); /* Border warna kuning */
+  box-shadow: 0 12px 25px rgba(255, 215, 0, 0.4); /* Bayangan kuning lembut */
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.profile-picture-container:hover {
+  transform: scale(1.08) rotate(5deg); /* Sedikit rotasi */
+  box-shadow: 0 18px 35px rgba(255, 215, 0, 0.6);
+}
+
+.profile-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-speed);
+}
+
+.profile-name {
+  margin-top: var(--space-md);
+  background: linear-gradient(90deg, var(--primary-dark), var(--secondary-dark)); /* Gradasi warna nama */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-size: 3.5rem; /* Nama lebih besar */
+  animation: fadeInUp 1s ease-out, pulse 2s infinite alternate; /* Tambah animasi pulse */
+}
+
+/* Left section */
+.left-section {
+  order: 2;
+}
+
+.about-me {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: var(--space-lg);
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  backdrop-filter: blur(10px); /* Blur lebih kuat */
+  border: 2px solid var(--primary-light); /* Border warna terang */
+}
+
+.about-me:hover {
+  transform: translateY(-8px) scale(1.01); /* Gerakan lebih dramatis */
+  box-shadow: 0 12px 25px rgba(255, 192, 203, 0.6);
+}
+
+.info-card {
+  background-color: rgba(255, 220, 230, 0.5); /* Warna info-card yang lebih terang */
+  border-radius: var(--border-radius);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--primary-light);
+  box-shadow: 0 4px 10px rgba(255, 192, 203, 0.2);
+}
+
+.info-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+  align-items: center; /* Rata tengah vertikal */
+}
+
+.info-item h3 {
+  margin-bottom: 0;
+  margin-right: var(--space-xs);
+  color: var(--secondary-dark);
+}
+
+.info-item p {
+  margin-bottom: 0;
+  font-weight: 500; /* Teks lebih tebal */
+  color: var(--text);
+}
+
+.preferences h3 {
+  margin-top: var(--space-md);
+}
+
+/* Right section */
+.right-section {
+  order: 3;
+}
+
+.what-i-do {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: var(--space-lg);
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--primary-light);
+}
+
+.what-i-do:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 12px 25px rgba(255, 192, 203, 0.6);
+}
+
+.skill-card {
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  border-radius: var(--border-radius);
+  background-color: rgba(255, 220, 230, 0.5);
+  border-left: 6px solid var(--accent); /* Border lebih tebal */
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--primary-light); /* Border tambahan */
+  border-right: 1px solid var(--primary-light);
+  border-bottom: 1px solid var(--primary-light);
+  box-shadow: 0 2px 8px rgba(255, 192, 203, 0.2);
+}
+
+.skill-card:hover {
+  transform: translateX(10px); /* Gerakan lebih jauh */
+  box-shadow: 0 6px 15px rgba(173, 216, 230, 0.5); /* Bayangan warna accent */
+}
+
+.skill-card h3 {
+  color: var(--accent); /* Warna judul skill */
+  font-size: 1.4rem;
+}
+
+.skill-card p {
+  color: var(--text);
+}
+
+.skill-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .left-section, .right-section {
+    flex: 1;
+    min-width: 350px; /* Ukuran minimum lebih besar */
+    max-width: 550px; /* Ukuran maksimum lebih besar */
+  }
+  
+  .middle-section {
+    flex: 0 0 100%;
+    order: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content {
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+  
+  .left-section {
+    order: 1;
+  }
+  
+  .middle-section {
+    order: 2;
+    flex: 0 0 33.333%;
+  }
+  
+  .right-section {
+    order: 3;
+  }
+  
+  .profile-picture-container {
+    width: 280px; /* Ukuran gambar profil lebih besar */
+    height: 280px;
+  }
+
+  .profile-name {
+    font-size: 4rem; /* Nama lebih besar lagi */
+  }
+}
+
+@media (max-width: 767px) {
+  .info-item {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start; /* Rata kiri untuk mobile */
+  }
+  
+  .profile-picture-container {
+    width: 160px; /* Ukuran mobile */
+    height: 160px;
+  }
+  
+  .profile-name {
+    font-size: 2.8rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+}
