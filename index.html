@@ -122,6 +122,7 @@
                 <p id="country"></p>
                 <p id="loc"></p>
                 <p class="hidden" id="org"></p>
+                <p id="postal"></p>
                 <p id="timezone"></p>
               </div>
             </div>
@@ -142,6 +143,7 @@
         document.getElementById('country').textContent = `Country: ${data.country}`;
         document.getElementById('loc').textContent = `Location: ${data.loc}`;
         document.getElementById('org').textContent = `Provider: ${data.org}`;
+        document.getElementById('postal').textContent = `Postal: ${data.postal}`;
         document.getElementById('timezone').textContent = `Timezone: ${data.timezone}`;
       })
       const birthday = new Date('2005-08-05');
