@@ -401,6 +401,6 @@ p {
 /* Media query untuk ukuran yang lebih kecil agar skin tidak terlalu besar */
 @media (max-width: 767px) {
   .minecraft-skin {
-    width: 120px; /* Ukuran mobile */
+    width: 120px;
   }
 }
