@@ -17,15 +17,15 @@
   --background: #FFF9F9; /* Hampir putih, sedikit pink */
   --text: #4B0082; /* Ungu tua yang lembut */
   --text-light: #8A2BE2; /* Ungu yang lebih terang */
-  --card-bg: rgba(255, 240, 245, 0.7); /* Pink pucat transparan */
-  
+  --card-bg: rgba(255, 240, 245, 0.1); /* Pink pucat transparan, opacity jauh lebih rendah */
+
   /* Spacing system (8px) */
-  --space-xs: 0.5rem;   /* 8px */
-  --space-sm: 1rem;     /* 16px */
-  --space-md: 1.5rem;   /* 24px */
-  --space-lg: 2rem;     /* 32px */
-  --space-xl: 3rem;     /* 48px */
-  
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 1rem; /* 16px */
+  --space-md: 1.5rem; /* 24px */
+  --space-lg: 2rem; /* 32px */
+  --space-xl: 3rem; /* 48px */
+
   /* Other variables */
   --border-radius: 20px; /* Lebih bulat */
   --card-shadow: 0 8px 20px rgba(255, 192, 203, 0.4); /* Bayangan lebih lembut */
@@ -45,7 +45,9 @@ body {
   align-items: center;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   line-height: 1.2;
   font-weight: 700;
   color: var(--primary-dark); /* Menggunakan primary-dark */
@@ -92,10 +94,9 @@ p {
 .container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: var(--space-md);
-  background-color: rgba(255, 255, 255, 0.8); /* Background container transparan */
+  background-color: transparent; /* Ubah menjadi transparan */
   border-radius: var(--border-radius);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); /* Bayangan keseluruhan */
+  box-shadow: none; /* Hapus bayangan pada container utama */
 }
 
 .content {
@@ -160,12 +161,12 @@ p {
 }
 
 .about-me {
-  background-color: var(--card-bg);
+  background-color: var(--card-bg); /* Menggunakan opacity rendah dari --card-bg */
   border-radius: var(--border-radius);
   padding: var(--space-lg);
   box-shadow: var(--card-shadow);
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  backdrop-filter: blur(10px); /* Blur lebih kuat */
+  backdrop-filter: blur(15px); /* Blur lebih kuat untuk opacity rendah */
   border: 2px solid var(--primary-light); /* Border warna terang */
 }
 
@@ -175,13 +176,13 @@ p {
 }
 
 .info-card {
-  background-color: rgba(255, 220, 230, 0.5); /* Warna info-card yang lebih terang */
+  background-color: rgba(255, 220, 230, 0.1); /* Warna info-card yang lebih terang, opacity rendah */
   border-radius: var(--border-radius);
   padding: var(--space-md);
   margin-bottom: var(--space-md);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px); /* Blur lebih kuat */
   border: 1px solid var(--primary-light);
-  box-shadow: 0 4px 10px rgba(255, 192, 203, 0.2);
+  box-shadow: 0 4px 10px rgba(255, 192, 203, 0.05); /* Bayangan lebih samar */
 }
 
 .info-item {
@@ -214,12 +215,12 @@ p {
 }
 
 .what-i-do {
-  background-color: var(--card-bg);
+  background-color: var(--card-bg); /* Menggunakan opacity rendah dari --card-bg */
   border-radius: var(--border-radius);
   padding: var(--space-lg);
   box-shadow: var(--card-shadow);
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px); /* Blur lebih kuat untuk opacity rendah */
   border: 2px solid var(--primary-light);
 }
 
@@ -232,19 +233,19 @@ p {
   padding: var(--space-md);
   margin-bottom: var(--space-md);
   border-radius: var(--border-radius);
-  background-color: rgba(255, 220, 230, 0.5);
+  background-color: rgba(255, 220, 230, 0.1); /* Opacity rendah */
   border-left: 6px solid var(--accent); /* Border lebih tebal */
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px); /* Blur lebih kuat */
   border-top: 1px solid var(--primary-light); /* Border tambahan */
   border-right: 1px solid var(--primary-light);
   border-bottom: 1px solid var(--primary-light);
-  box-shadow: 0 2px 8px rgba(255, 192, 203, 0.2);
+  box-shadow: 0 2px 8px rgba(255, 192, 203, 0.05); /* Bayangan lebih samar */
 }
 
 .skill-card:hover {
   transform: translateX(10px); /* Gerakan lebih jauh */
-  box-shadow: 0 6px 15px rgba(173, 216, 230, 0.5); /* Bayangan warna accent */
+  box-shadow: 0 6px 15px rgba(173, 216, 230, 0.3); /* Bayangan warna accent */
 }
 
 .skill-card h3 {
@@ -291,13 +292,14 @@ p {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
-  .left-section, .right-section {
+
+  .left-section,
+  .right-section {
     flex: 1;
     min-width: 350px; /* Ukuran minimum lebih besar */
     max-width: 550px; /* Ukuran maksimum lebih besar */
   }
-  
+
   .middle-section {
     flex: 0 0 100%;
     order: 0;
@@ -307,22 +309,23 @@ p {
 @media (min-width: 1200px) {
   .content {
     flex-wrap: nowrap;
+    padding: var(--space-md);
     align-items: stretch;
   }
-  
+
   .left-section {
     order: 1;
   }
-  
+
   .middle-section {
     order: 2;
     flex: 0 0 33.333%;
   }
-  
+
   .right-section {
     order: 3;
   }
-  
+
   .profile-picture-container {
     width: 280px; /* Ukuran gambar profil lebih besar */
     height: 280px;
@@ -339,18 +342,62 @@ p {
     gap: 0;
     align-items: flex-start; /* Rata kiri untuk mobile */
   }
-  
+
   .profile-picture-container {
     width: 160px; /* Ukuran mobile */
     height: 160px;
   }
-  
+
   .profile-name {
     font-size: 2.8rem;
   }
-  
+
   h2 {
     font-size: 1.8rem;
+  }
+
+  /* Penyesuaian untuk teks di HP agar tidak sempit */
+  .about-me p,
+  .what-i-do p {
+    font-size: 1.05rem; /* Sedikit perbesar ukuran font lagi */
+    line-height: 1.8; /* Tetap tinggi baris untuk keterbacaan */
+    padding: 0 15px; /* Tambahkan lebih banyak padding horizontal */
+    margin-bottom: var(--space-sm); /* Kurangi margin bawah sedikit jika perlu */
+  }
+
+  .skill-card p {
+    font-size: 1.05rem; /* Sedikit perbesar ukuran font lagi */
+    line-height: 1.8; /* Tetap tinggi baris untuk keterbacaan */
+    padding: 0 15px; /* Tambahkan lebih banyak padding horizontal */
+    margin-bottom: var(--space-sm); /* Kurangi margin bawah sedikit jika perlu */
+  }
+
+  /* Perluas padding keseluruhan pada card di mobile */
+  .about-me,
+  .what-i-do,
+  .skill-card {
+    padding: var(--space-lg) var(--space-md); /* Tambahkan padding vertikal dan horizontal yang lebih besar */
+  }
+
+  /* Untuk elemen p di dalam .info-card (seperti Age, Birthday, dll.) */
+  .info-card .info-item p {
+    font-size: 1rem; /* Bisa disesuaikan jika ingin lebih besar/kecil dari paragraf umum */
+    padding: 0; /* Pastikan tidak ada padding horizontal yang mengganggu tata letak item */
+    margin-bottom: 0;
+  }
+
+  /* Menyesuaikan padding pada preferences untuk mobile */
+  .preferences {
+    padding: 0 15px; /* Tambahkan padding horizontal agar teks tidak terlalu menempel */
+  }
+  .preferences h3 {
+    margin-left: 0; /* Pastikan h3 tidak punya margin kiri yang tidak diinginkan */
+    padding-left: 15px; /* Sesuaikan dengan padding paragraf di preferences */
+  }
+
+  /* Menyesuaikan padding pada info-card untuk mobile */
+  .info-card {
+    padding: var(--space-md) var(--space-md); /* Sesuaikan padding agar lebih proporsional */
   }
 }
 
@@ -363,20 +410,20 @@ p {
 }
 
 .minecraft-skin-section h2 {
-    font-size: 1.6rem; /* Ukuran judul skin */
-    margin-bottom: var(--space-md);
-    color: var(--primary-dark); /* Warna judul */
+  font-size: 1.6rem; /* Ukuran judul skin */
+  margin-bottom: var(--space-md);
+  color: var(--primary-dark); /* Warna judul */
 }
 
 .minecraft-skin-section h2::after {
-    /* Hapus atau sesuaikan underline untuk judul skin jika tidak diinginkan */
-    content: none; /* Menghilangkan underline bawaan h2 */
+  /* Hapus atau sesuaikan underline untuk judul skin jika tidak diinginkan */
+  content: none; /* Menghilangkan underline bawaan h2 */
 }
 
 
 .minecraft-skin-container {
   /* Margin-top bisa disesuaikan lagi jika perlu, atau dihapus jika section-nya sudah punya padding-top */
-  margin-top: var(--space-sm); 
+  margin-top: var(--space-sm);
   display: flex;
   justify-content: center; /* Tetap rata tengah agar skin di tengah */
   width: 100%;
@@ -385,22 +432,22 @@ p {
 .minecraft-skin {
   width: 180px; /* Ukuran skin mungkin bisa sedikit lebih besar di kolom kiri */
   height: auto;
-  border-radius: 15px; 
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); 
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.5); 
-  padding: 10px; 
-  border: 2px solid var(--secondary); 
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  border: 2px solid var(--secondary);
 }
 
 .minecraft-skin:hover {
-  transform: translateY(-5px) rotate(-3deg) scale(1.05); 
-  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6); 
+  transform: translateY(-5px) rotate(-3deg) scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
 }
 
 /* Media query untuk ukuran yang lebih kecil agar skin tidak terlalu besar */
 @media (max-width: 767px) {
   .minecraft-skin {
-    width: 120px;
+    width: 120px; /* Ukuran mobile */
   }
 }
