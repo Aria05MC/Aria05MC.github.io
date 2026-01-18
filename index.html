@@ -1,179 +1,247 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./profile.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inmate Profile | Aria</title>
+    <link rel="icon" type="image/png" href="public/images/favicon.png">
+    <!-- Google Fonts: Space Mono for data, Quicksand for friendly text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Dosis:wght@600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Aria05</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="content">
-        <section class="left-section">
-          <div class="about-me">
-            <h2>About Me</h2>
-            <p>
-              Yoo! Im Aria. a nerd girl who love to code &gt;:D
-            </p>
-            
-            <div class="info-card">
-              <div class="info-item">
-                <h3>Age (Live):</h3>
-                <p id="age"></p>
-              </div>
+    <link rel="stylesheet" href="public/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-              <div class="info-item">
-                <h3>Birthday:</h3>
-                <p id="birthday"></p>
-              </div>
-              
-              <div class="info-item">
-                <h3>Pronouns:</h3>
-                <p>She/Her</p>
-              </div>
-              
-              <div class="info-item">
-                <h3>Sexuality:</h3>
-                <p>Straight</p>
-              </div>
-            </div>
-            
-            <div class="preferences">
-              <div class="likes">
-                <h3>Likes:</h3>
-                <p>
-                  Do coding or animating.<br>
-                  I also like BDSM, my role is always be Submissive =w=
-                </p>
-              </div>
-              
-              <div class="dislikes">
-                <h3>Dislikes:</h3>
-                <p>
-                    Be alone xD
-                </p>
-              </div>
-              
-              <div class="extras">
-                <h3>Extras:</h3>
-                <p>IM BOREED =m=</p>
-              </div>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-              <div class="owner">
-                <h3>Owner:</h3>
-                <p>Shoes</p>
-              </div>
-            </div>
-
-            <div class="minecraft-skin-section">
-              <h2>My Live Minecraft Skin:</h2>
-              <div class="minecraft-skin-container">
-                <img src="https://crafatar.com/renders/body/00951275-aee9-466a-8903-d2088413d958?overlay" alt="Aria05 Minecraft Skin" class="minecraft-skin">
-              </div>
-            </div>
-            </div>
-        </section>
-        
-        <section class="middle-section">
-          <div class="profile">
-            <div class="profile-picture-container">
-              <img src="./profile.png" alt="Aria05" class="profile-picture">
-            </div>
-            <h1 class="profile-name">Aria05</h1>
-            <div class="profile-actions">
-              <a
-                class="glass-btn"
-                href="https://discord.com/users/1063816037910446100"
-                target="_blank"
-                rel="noopener"
-                aria-label="Open Discord profile Aria05"
-              >
-                ✦ Chat me on Discord
-              </a>
-            </div>
-
-          </div>
-        </section>
-        
-        <section class="right-section">
-          <div class="what-i-do">
-            <h2>What I Do</h2>
-            
-            <div class="skill-card">
-                <h3>Item Developing</h3>
-                <p>
-                    I don’t really make items for prison RP or anything like that—what I do is more focused on trying random ideas 
-                    and just making things I personally enjoy. Sometimes I mess with UI elements, sometimes I generate things using 
-                    code just for fun. It started from random experiments and turned into something I actually enjoy. 
-                    I’m not focused on being the best at it—I just like learning and building stuff.
-                </p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Programming Projects</h3>
-                <p>
-                    Most of my repositories are personal learning spaces. Whether it’s web dev, data science, machine learning, or 
-                    just testing some weird CSS, I keep building things that interest me. I’ve worked on projects using Python, HTML, 
-                    Jupyter Notebook, and even TensorFlow and PyTorch when I feel like messing with AI. I don’t follow trends—I just 
-                    code what I like and share it.
-                </p>
-            </div>
-
-            <div class="skill-card">
-                <h3>I know your location</h3>
-                <p id="ip"></p>
-                <p class="hidden" id="hostname"></p>
-                <p id="city"></p>
-                <p id="region"></p>
-                <p id="country"></p>
-                <p id="loc"></p>
-                <p class="hidden" id="org"></p>
-                <p id="postal"></p>
-                <p id="timezone"></p>
-              </div>
-            </div>
-
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
     <script>
-    fetch('https://ipinfo.io/json')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('ip').textContent = `IP: ${data.ip}`;
-        document.getElementById('hostname').textContent = `Hostname: ${data.hostname}`;
-        document.getElementById('city').textContent = `City: ${data.city}`;
-        document.getElementById('region').textContent = `Region: ${data.region}`;
-        document.getElementById('country').textContent = `Country: ${data.country}`;
-        document.getElementById('loc').textContent = `Location: ${data.loc}`;
-        document.getElementById('org').textContent = `Provider: ${data.org}`;
-        document.getElementById('postal').textContent = `Postal: ${data.postal}`;
-        document.getElementById('timezone').textContent = `Timezone: ${data.timezone}`;
-      })
-      const birthday = new Date('2005-08-05');
-
-      const today = new Date();
-      let age = today.getFullYear() - birthday.getFullYear();
-      const m = today.getMonth() - birthday.getMonth();
-      if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
-        age--;
-      }
-
-      const birthdayFormatted = birthday.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-
-      document.getElementById('age').innerText = age;
-      document.getElementById('birthday').innerText = birthdayFormatted;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Quicksand', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        'prison-black': '#0a0a0a',
+                        'prison-gray': '#1f1f1f',
+                        'prison-light': '#e5e5e5',
+                        'accent-white': '#ffffff',
+                    }
+                }
+            }
+        }
     </script>
-  </body>
+
+</head>
+
+<body
+    class="bg-prison-black text-prison-light overflow-hidden h-screen w-full relative selection:bg-white selection:text-black">
+
+    <!-- 1. Background Layer (Full Page Image) -->
+    <!-- Using a moody monochrome placeholder image -->
+    <div class="absolute inset-0 z-0">
+        <img src="public/images/background.png" alt="Prison Atmosphere Background"
+            class="w-full h-full object-cover filter">
+        <!-- Overlay gradient to ensure text readability on the far right if image is light -->
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-black/40 to-black/80"></div>
+    </div>
+
+    <!-- 2. Decorative Background Elements (Floating) -->
+    <div class="absolute top-10 left-10 z-10 opacity-30 pointer-events-none hidden md:block">
+        <div class="border-2 border-white/20 w-32 h-32 rounded-full flex items-center justify-center">
+            <i data-lucide="x" class="w-16 h-16 text-white/20"></i>
+        </div>
+    </div>
+
+    <!-- 3. Main Content Container -->
+    <main class="relative z-20 w-full h-full flex justify-end">
+
+        <!-- The "File" (Right Side Panel) -->
+        <div class="glass-panel w-full md:w-[600px] h-full overflow-y-auto relative flex flex-col">
+
+            <!-- Sticky Header: ID Badge -->
+            <div
+                class="sticky top-0 z-30 bg-black/80 backdrop-blur-md border-b border-white/10 p-6 flex items-center justify-between stripes-bg">
+                <div class="flex items-center gap-4">
+                    <div class="bg-white/10 p-2 rounded-lg border border-white/20">
+                        <i data-lucide="fingerprint" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-mono text-xs text-gray-400 uppercase tracking-widest">Inmate File</h2>
+                        <h1 class="font-mono text-xl font-bold text-white tracking-tighter">#069-ARIA</h1>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></span>
+                    <span class="font-mono text-xs text-red-400">HIGH SECURITY</span>
+                </div>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="p-6 md:p-8 space-y-8">
+
+                <!-- Profile Header Section -->
+                <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+                    <!-- Avatar -->
+                    <div class="relative group">
+                        <div
+                            class="w-32 h-32 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl pulse-on-hover cursor-pointer relative z-10">
+                            <img src="public/images/profile.png" alt="Profile"
+                                class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                        <!-- Cute decorative elements -->
+                        <div
+                            class="absolute -top-2 -right-2 bg-white text-black text-xs font-bold px-2 py-1 rounded-full transform rotate-12 z-20">
+                            WANTED
+                        </div>
+                        <i data-lucide="star"
+                            class="absolute bottom-0 -left-2 text-yellow-200 w-6 h-6 fill-current animate-bounce z-20"></i>
+                    </div>
+
+                    <!-- Basic Stats -->
+                    <div class="flex-1 text-center md:text-left space-y-2">
+                        <h2 class="text-4xl font-bold font-sans">Aria 'The Idiot'</h2>
+                        <p class="text-gray-400 text-sm font-mono italic">"A random girl who love coding"</p>
+
+                        <!-- Mugshot Data Grid -->
+                        <div class="grid grid-cols-3 gap-2 mt-4">
+                            <div
+                                class="bg-white/5 p-2 rounded border border-white/5 text-center hover:bg-white/10 transition">
+                                <span class="block text-xs text-gray-500 font-mono uppercase">Age</span>
+                                <span id="age" class="block font-bold"></span>
+                            </div>
+                            <div
+                                class="bg-white/5 p-2 rounded border border-white/5 text-center hover:bg-white/10 transition">
+                                <span class="block text-xs text-gray-500 font-mono uppercase">Type</span>
+                                <span class="block font-bold">Human</span>
+                            </div>
+                            <div
+                                class="bg-white/5 p-2 rounded border border-white/5 text-center hover:bg-white/10 transition">
+                                <span class="block text-xs text-gray-500 font-mono uppercase">Gender</span>
+                                <span class="block font-bold">Female</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-white/10 border-dashed">
+
+                <!-- Prison Record (Themed Data) -->
+                <section class="space-y-4">
+                    <h3 class="font-mono text-sm uppercase tracking-widest text-gray-500 flex items-center gap-2">
+                        <i data-lucide="file-warning" class="w-4 h-4"></i> Official Record
+                    </h3>
+
+                    <div
+                        class="bg-black/40 rounded-xl p-5 border border-white/10 relative overflow-hidden group hover:border-white/30 transition">
+                        <!-- Background Stripes decorative -->
+                        <div class="absolute top-0 right-0 w-24 h-full stripes-bg opacity-10"></div>
+
+                        <div class="grid gap-4 relative z-10">
+                            <div>
+                                <span class="text-xs text-gray-500 uppercase font-mono">Reason for Imprisonment</span>
+                                <p class="text-lg font-sans font-semibold text-white mt-1">
+                                    Using the Ubuntu Operating System instead of Windows.
+                                </p>
+                            </div>
+                            <div class="flex gap-4">
+                                <div>
+                                    <span class="text-xs text-gray-500 uppercase font-mono">Sentence</span>
+                                    <p class="font-mono text-sm">Life w/o Parole</p>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-500 uppercase font-mono">Cell Block</span>
+                                    <p class="font-mono text-sm">C-137</p>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-500 uppercase font-mono">Warden's Notes</span>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <i data-lucide="smile" class="text-white w-4 h-4"></i>
+                                    <p class="text-sm italic text-gray-300">
+                                        "The suspect turned out to be very kind and sensitive when tickled."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Personality / Bio -->
+                <section class="space-y-3">
+                    <h3 class="font-mono text-sm uppercase tracking-widest text-gray-500 flex items-center gap-2">
+                        <i data-lucide="user-search" class="w-4 h-4"></i> Personality Audit
+                    </h3>
+                    <p
+                        class="text-gray-300 leading-relaxed font-sans bg-white/5 p-4 rounded-lg border-l-2 border-white">
+                        Just a bored nerd girl wandering the internet.
+                        I code when curiosity hits, animate things for no reason,
+                        and disappear randomly when I get sleepy.
+                        If something looks weird, it was probably intentional… or not.
+                    </p>
+                </section>
+
+                <!-- Skills / Contraband (Hobbies) -->
+                <section class="space-y-3">
+                    <h3 class="font-mono text-sm uppercase tracking-widest text-gray-500 flex items-center gap-2">
+                        <i data-lucide="backpack" class="w-4 h-4"></i> Known Contraband
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <!-- Custom styled tags -->
+                        <span
+                            class="prison-tag px-3 py-1 bg-white/10 rounded-full text-xs font-mono border border-white/20 cursor-default">Minecraft</span>
+                        <span
+                            class="prison-tag px-3 py-1 bg-white/10 rounded-full text-xs font-mono border border-white/20 cursor-default">Visual
+                            Studio Code</span>
+                        <span
+                            class="prison-tag px-3 py-1 bg-white/10 rounded-full text-xs font-mono border border-white/20 cursor-default">Mine-imator</span>
+                        <span
+                            class="prison-tag px-3 py-1 bg-white/10 rounded-full text-xs font-mono border border-white/20 cursor-default">Roleplay</span>
+                    </div>
+                </section>
+
+                <!-- Social Links (Visitation Rights) -->
+                <section class="pt-4">
+                    <div class="bg-white rounded-2xl p-4 text-black text-center relative overflow-hidden group">
+                        <div class="relative z-10">
+                            <h3 class="font-bold text-lg mb-4 font-mono uppercase tracking-tighter">Visitation Rights
+                            </h3>
+                            <div class="flex justify-center gap-4">
+                                <a href="https://discord.com/users/1063816037910446100" target="_blank"
+                                    class="p-3 bg-black text-white rounded-full hover:scale-110 transition-transform hover:bg-gray-800">
+                                    <i data-lucide="message-circle-more" class="w-5 h-5"></i>
+                                </a>
+                                <a href="https://namemc.com/profile/Aria05.3" target="_blank"
+                                    class="p-3 bg-black text-white rounded-full hover:scale-110 transition-transform hover:bg-gray-800">
+                                    <i data-lucide="box" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 opacity-5 pointer-events-none transform -rotate-12">
+                            <i data-lucide="link" class="w-32 h-32"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="text-center pb-8 pt-4">
+                    <p class="font-mono text-[10px] text-gray-600 uppercase">
+                        Property of State Penitentiary • Do Not Remove <br>
+                        Template ID: 069-X
+                    </p>
+                </footer>
+            </div>
+        </div>
+    </main>
+
+    <!-- Interactive JS for Lucide and small interactions -->
+    <script src="public/js/script.js"></script>
+</body>
+
 </html>
